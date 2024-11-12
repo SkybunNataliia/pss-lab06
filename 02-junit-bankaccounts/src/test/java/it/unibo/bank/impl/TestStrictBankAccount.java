@@ -51,6 +51,7 @@ class TestStrictBankAccount {
         bankAccount.deposit(mRossi.getUserID(), AMOUNT);
         assertEquals(1, bankAccount.getTransactionsCount());
         assertEquals(AMOUNT, bankAccount.getBalance());
+
         double feeAmount = StrictBankAccount.MANAGEMENT_FEE + bankAccount.getTransactionsCount() * StrictBankAccount.TRANSACTION_FEE;
         bankAccount.chargeManagementFees(mRossi.getUserID());
         assertEquals(AMOUNT-feeAmount, bankAccount.getBalance());
